@@ -29,7 +29,17 @@ export default function TrackList({ tracks }) {
             <strong>{track.title}</strong>
             <p className="muted">{track.artist?.username || "Spotify artist"}</p>
           </div>
-          <audio controls src={track.uri}>Your browser does not support audio playback.</audio>
+          <audio
+            controls
+            src={track.uri}
+            onPlay={(event) => {
+              document.querySelectorAll("audio").forEach((audio) => {
+                if (audio !== event.currentTarget) audio.pause();
+              });
+            }}
+          >
+            Your browser does not support audio playback.
+          </audio>
         </article>
       ))}
     </div>
