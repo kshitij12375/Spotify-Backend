@@ -48,9 +48,6 @@ async function authUser(req,res,next){
                 return res.status(403),json({"message":"You dont have access"});
             }
     
-            if(decoded.role !== 'artist'){
-                return res.status(401).json({"message":"Forbidden error"})
-            }
             req.user=decoded;
             next();
             
