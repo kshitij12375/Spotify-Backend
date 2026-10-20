@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://spotify-backend-9tr8.onrender.com/api/:path*"
-    }
-  ]
-}
