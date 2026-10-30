@@ -1,0 +1,228 @@
+@import "./Album.css";
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 76px);
+  overflow: hidden;
+  padding: clamp(36px, 6vw, 72px) max(24px, calc((100% - 1120px) / 2));
+  background:
+    radial-gradient(ellipse at 12% 9%, rgba(114, 75, 181, 0.22), transparent 34%),
+    radial-gradient(ellipse at 91% 50%, rgba(49, 143, 111, 0.12), transparent 30%),
+    #101014;
+  color: #f7f6fb;
+}
+
+.home-page::before {
+  display: block;
+  margin-bottom: 12px;
+  color: #b7ef7a;
+  content: "RYTHM MUSIC  /  YOUR LIBRARY";
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+}
+
+.home-page::after {
+  display: block;
+  max-width: 640px;
+  margin-bottom: 38px;
+  color: #f7f6fb;
+  content: "A little more rhythm in your day.";
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.album-card {
+  display: inline-flex;
+  width: min(100%, 220px);
+  min-height: 132px;
+  margin: 0 14px 28px 0;
+  vertical-align: top;
+}
+
+.album-card button {
+  position: relative;
+  width: 100%;
+  min-height: 132px;
+  overflow: hidden;
+  padding: 82px 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(183, 239, 122, 0.34), transparent 28%),
+    linear-gradient(145deg, #39304d, #211e29 68%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  color: #f7f6fb;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  text-overflow: ellipsis;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.album-card button::before {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(15, 15, 20, 0.3);
+  color: #c9ff98;
+  content: "♫";
+  font-size: 23px;
+}
+
+.album-card button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(183, 239, 122, 0.4);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+.album-card button:focus-visible {
+  outline: 2px solid #b7ef7a;
+  outline-offset: 3px;
+}
+
+.music-card {
+  position: relative;
+  display: flex;
+  min-height: 114px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+  padding: 22px 24px 22px 110px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background:
+    linear-gradient(110deg, rgba(132, 93, 196, 0.14), transparent 43%),
+    #19191f;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.music-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 239, 122, 0.28);
+}
+
+.music-cover {
+  position: absolute;
+  left: 23px;
+  width: 66px;
+  height: 66px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+.music-card::after {
+  display: none;
+}
+
+.music-card > div {
+  position: absolute;
+  left: 108px;
+  max-width: min(30%, 230px);
+  overflow: hidden;
+  color: #e8e7ed;
+  font-size: 14px;
+  font-weight: 680;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.music-player {
+  width: min(100%, 520px);
+  height: 42px;
+  accent-color: #b7ef7a;
+  color-scheme: dark;
+}
+
+.music-player:focus-visible {
+  outline: 2px solid #b7ef7a;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .home-page {
+    min-height: calc(100vh - 68px);
+    padding: 42px 18px;
+  }
+
+  .home-page::after {
+    margin-bottom: 26px;
+  }
+
+  .album-card {
+    width: calc(50% - 9px);
+    min-height: 116px;
+    margin: 0 12px 20px 0;
+  }
+
+  .album-card:nth-child(even) {
+    margin-right: 0;
+  }
+
+  .album-card button {
+    min-height: 116px;
+    padding: 72px 14px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+  }
+
+  .album-card button::before {
+    top: 13px;
+    left: 14px;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+
+  .music-card {
+    min-height: 158px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 72px 16px 16px;
+    border-radius: 17px;
+  }
+
+  .music-cover {
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+
+  .music-card::after {
+    display: none;
+  }
+
+  .music-card > div {
+    top: 30px;
+    left: 72px;
+    max-width: calc(100% - 90px);
+    font-size: 13px;
+  }
+
+  .music-player {
+    width: 100%;
+    height: 40px;
+  }
+}

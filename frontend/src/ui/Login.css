@@ -1,0 +1,167 @@
+.auth-page {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  padding: 48px 24px;
+  color: #f7f6fb;
+  background:
+    radial-gradient(ellipse at 18% 82%, rgba(101, 57, 173, 0.2), transparent 38%),
+    radial-gradient(ellipse at 84% 12%, rgba(33, 161, 130, 0.12), transparent 32%),
+    #101014;
+}
+
+.Login {
+  box-sizing: border-box;
+}
+
+.Login *,
+.Login *::before,
+.Login *::after {
+  box-sizing: border-box;
+}
+
+.box {
+  position: relative;
+  width: min(100%, 460px);
+  padding: 46px clamp(28px, 7vw, 58px) 40px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(95, 62, 142, 0.22), transparent 38%),
+    #19191f;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+}
+
+.box::before {
+  display: block;
+  margin-bottom: 30px;
+  color: #b7ef7a;
+  content: "♫  Rythm Music";
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.box::after {
+  position: absolute;
+  top: 39px;
+  right: 48px;
+  color: rgba(183, 239, 122, 0.1);
+  content: "♫";
+  font-size: 104px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 720;
+  letter-spacing: -0.045em;
+  text-align: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: auto;
+  padding: 20px 0 0;
+  border: 0;
+}
+
+.auth-label {
+  margin-top: 5px;
+  color: #e8e7ed;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.inp {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #34343d;
+  border-radius: 11px;
+  outline: none;
+  background: #202027;
+  color: #f7f6fb;
+  font-size: 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.inp:focus {
+  border-color: #b3ed78;
+  box-shadow: 0 0 0 3px rgba(179, 237, 120, 0.12);
+}
+
+.sub-btn {
+  min-height: 49px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 11px;
+  background: #b7ef7a;
+  color: #171b13;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 750;
+  transition: transform 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+.sub-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  background: #c8ff8d;
+}
+
+.sub-btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.footer {
+  margin: 23px 0 0;
+  color: #9998a3;
+  font-size: 13px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #c5f58f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #dcffb6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    min-height: calc(100vh - 68px);
+    padding: 28px 18px;
+  }
+
+  .box {
+    padding: 36px 28px 32px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .auth-page {
+    padding: 20px 12px;
+  }
+
+  .box {
+    padding: 30px 22px;
+  }
+}

@@ -4,20 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start":"npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kshitij12375/Spotify-Backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "@imagekit/nodejs": "^7.12.1",
-    "bcryptjs": "^3.0.3",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^18.0.8",
-    "express": "^5.3.0",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.11.2",
-    "multer": "^2.4.0"
-  }
+  "bugs": {
+    "url": "https://github.com/kshitij12375/Spotify-Backend/issues"
+  },
+  "homepage": "https://github.com/kshitij12375/Spotify-Backend#readme"
 }
