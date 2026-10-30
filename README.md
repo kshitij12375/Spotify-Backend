@@ -225,9 +225,7 @@ This project focuses on authentication, artist uploads, a shared music library, 
 
 ---
 
-## Author
+## Project
 
-**Kshitij Srivastava**
-
-- GitHub: [kshitij12375](https://github.com/kshitij12375)
+Built and maintained as a personal full-stack development project.
 
