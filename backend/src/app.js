@@ -13,7 +13,7 @@ app.use(cors({
     credentials: true
 }));
 
-const __dirname = path.resolve();
+const __dirname1 = path.resolve();
 
 
 
@@ -24,9 +24,9 @@ app.use("/api/auth",authRoutes);
 app.use("/api/music",musicRoutes);
 
 if(process.env.NODE_ENV==="production"){
-    app.use(express.static(path.join(__dirname,"../frontend/dist")));
+    app.use(express.static(path.join(__dirname1,"../frontend/dist")));
     app.get("/{*splat}",(req,res)=>{
-        res.sendFile(path.join(__dirname,"../frontend/dist/index.html"))
+        res.sendFile(path.join(__dirname1,"../frontend/dist/index.html"))
     })
     
    
