@@ -48,7 +48,7 @@ const App = () => {
         <Route path="/login" element={!authUser ? <Login/> : <Navigate to="/"/>}/>
         <Route path="/sign" element={!authUser ? <SignUp/> : <Navigate to="/"/>} />
         <Route path="/album" element={Id ? <Album/> :  <Navigate to="/"/>} />
-        <Route path="/upload" element={authUser?.user?.role === 'artist' ? <Upload/> : <Navigate to={authUser ? "/" : "/login"} />} />
+        <Route path="/upload" element={authUser?.role === 'artist' ? <Upload/> : <Navigate to={authUser ? "/" : "/login"} />} />
 
 
       </Routes>
