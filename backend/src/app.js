@@ -4,6 +4,7 @@ const authRoutes = require('./routes/auth.routes');
 const musicRoutes = require('./routes/music.routes');
 const cors = require('cors');
 const path = require('path');
+const multer = require('multer');
 
 const app = express();
 
@@ -28,7 +29,11 @@ if (process.env.NODE_ENV === "production") {
 
 app.use((err, req, res, next) => {
     if (err instanceof multer.MulterError) {
-        return res.status(400).json({ message: err.code === "LIMIT_FILE_SIZE" ? "Audio file must be 25MB or smaller" : err.message });
+        return res.status(400).json({
+            message: err.code === "LIMIT_FILE_SIZE"
+                ? "Audio file must be 25MB or smaller"
+                : err.message
+        });
     }
 
     console.error(err);
