@@ -6,13 +6,12 @@ import "../ui/Navbar.css";
 const Navbar = () => {
 
     const {authUser,logout}=useAuthStore();
-    console.log(authUser);
   return (
     <div className="site-header">
 
 
 
-      {authUser && authUser.user.role=="artist" && (
+      {authUser && authUser.role === "artist" && (
         <Link to="/upload">Upload </Link>
       )}
 
