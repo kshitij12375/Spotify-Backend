@@ -1,67 +1,45 @@
-const jwt=require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
+function verifyRequest(req, res) {
+    const token = req.cookies?.token;
 
+    if (!token) {
+        res.status(401).json({ message: "Unauthorized" });
+        return null;
+    }
 
-async function authArtist(req,res,next){
-    const token=req.cookies.token;
-    
-        if(!token){
-            return res.status(401).json({
-                "Message":"unauthorised"
-            })
-        }
-    
-        try {
-            const decoded=jwt.verify(token,process.env.SECRET_KEY);
-    
-            if(decoded.role !== 'artist'){
-                return res.status(401).json({"message":"Forbidden error"})
-            }
-            req.user=decoded;
-            next();
-            
-        } catch (error) {
-    
-            console.log(error);
-    
-            return res.status(401).json({"message":"Unauthorized"})
-            
-        }
-    
-
+    try {
+        return jwt.verify(token, process.env.SECRET_KEY);
+    } catch (error) {
+        res.status(401).json({ message: "Invalid or expired session" });
+        return null;
+    }
 }
 
+function authArtist(req, res, next) {
+    const decoded = verifyRequest(req, res);
 
-async function authUser(req,res,next){
-    const token=req.cookies.token;
-    
-        if(!token){
-            return res.status(401).json({
-                "Message":"unauthorised"
-            })
-        }
-    
-        try {
-            const decoded=jwt.verify(token,process.env.SECRET_KEY);
+    if (!decoded) return;
 
-            if(decoded.role!="user" && decoded.role!="artist"){
-                return res.status(403),json({"message":"You dont have access"});
-            }
-    
-            req.user=decoded;
-            next();
-            
-        } catch (error) {
-    
-            console.log(error);
-    
-            return res.status(401).json({"message":"Unauthorized"})
-            
-        }
-    
+    if (decoded.role !== "artist") {
+        return res.status(403).json({ message: "Only artists can perform this action" });
+    }
 
+    req.user = decoded;
+    return next();
 }
 
+function authUser(req, res, next) {
+    const decoded = verifyRequest(req, res);
 
+    if (!decoded) return;
 
-module.exports={authArtist,authUser};
+    if (!["user", "artist"].includes(decoded.role)) {
+        return res.status(403).json({ message: "You do not have access" });
+    }
+
+    req.user = decoded;
+    return next();
+}
+
+module.exports = { authArtist, authUser };
